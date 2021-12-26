@@ -127,6 +127,8 @@ class PollsWithAnswer(APIView):
         return Response({'detailed_polls': serializer.data})
 
     def post(self, request):
+        if 'answers' not in request.data:
+            return Response({}, status=status.HTTP_400_BAD_REQUEST)
         answers_from = request.data['answers']
         for answer in answers_from:
             if is_answer_json_valid(answer):
