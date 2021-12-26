@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block polls_submitted_detailed %}
+<body>
+{% for poll, a_q in polls %}
+    <table border="1">
+    <caption>{{poll.poll_name}}</caption>
+        <thead>
+            <tr>
+                <th>Вопрос</th>
+                <th>Ответ</th>
+            </tr>
+        </thead>
+        {% for q,a in a_q %}
+        <tbody>
+            <tr>
+                <td>{{q.question_text}}</td>
+                <td>{{a.answer_text}}</td>
+            </tr>
+        </tbody>
+        {% endfor %}
+    </table>
+{% endfor %}
+</body>
+{% endblock %}

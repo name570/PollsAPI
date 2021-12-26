@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block start_poll %}
+<body>
+<p>
+    <label>Оставьте это поле пустым, чтобы пройти опрос анонимно</label>
+</p>
+<p>
+  <form action = "{% url 'answer_question' %}" method="POST">
+      {% csrf_token %}
+    <p>
+        <label>ID пользователя</label>
+    </p>
+    <p>
+        <input name="id_user">
+    </p>
+    <p>
+      <button>Начать опрос</button>
+      <input type="hidden" name="question_count" value="0">
+      <input type="hidden" name="poll_id" value={{poll_id}}>
+
+  </form>
+</p>
+</body>
+{% endblock %}

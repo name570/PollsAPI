@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block polls_submitted %}
+<p>
+    <table border="1">
+    <caption>Пройденные опросы</caption>
+    <thead>
+        <tr>
+           <th>Название опроса</th>
+            <th>Описание</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for poll in polls %}
+        <tr>
+           <td>{{poll.poll_name}}</td>
+            <td>{{poll.poll_description}}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+    </table>
+</p>
+    <form action="{% url 'detailed_submitted_polls' %}">
+        <button>Получить детализированную информацию</button>
+        <input type="hidden" name="user_id" value="{{user_id}}">
+    </form>
+</body>
+{% endblock %}

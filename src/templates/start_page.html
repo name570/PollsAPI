@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block start_page %}
+<body>
+<p>
+    <form action="{% url 'active_polls' %}"  style="width: 50%">
+        <button type="submit">Активные опросы</button>
+    </form>
+</p>
+<p>
+    <form action = "{% url 'get_user_id' %}">
+        <button type="submit">Посмотреть пройденные опросы</button>
+    </form>
+</p>
+</body>
+{% endblock %}

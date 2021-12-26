@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block active_polls %}
+<body>
+    {% for poll in active_polls %}
+    <form action="{% url 'start_poll' %}">
+        <p>
+        <button class="link">{{poll.poll_name}}</button>
+        </p>
+        <input type="hidden" name="poll_id" value="{{poll.id}}">
+    </form>
+
+    {% endfor %}
+</body>
+{% endblock %}

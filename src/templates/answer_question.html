@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block answer_question %}
+
+<body>
+  <form action = "{% url 'answer_question' %}" method="POST">
+      {% csrf_token %}
+      <p>
+      <label>{{question.question_text}}</label>
+      </p>
+      <input name="answer">
+      <input type="hidden" name="question" value = {{question.id}}>
+      <input type="hidden" name="question_count" value={{question_count}}>
+      <input type="hidden" name="id_user" value = {{id_user}}>
+      <input type="hidden" name="poll_id" value={{poll_id}}>
+      <p>
+      <button type="submit">Ответить</button>
+      </p>
+  </form>
+
+</body>
+{% endblock %}

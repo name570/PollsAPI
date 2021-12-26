@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block answer_question %}
+
+<body>
+  <label>Спасибо за прохождение опроса!</label>
+<form action="{% url 'submitted_pols' %}">
+        <p>
+        <button type="submit">Посмотреть пройденные опросы</button>
+          <input type="hidden" name="user_id" value="{{id_user}}" >
+        </p>
+    </form>
+</body>
+
+{% endblock %}
